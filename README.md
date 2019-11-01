@@ -4,7 +4,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.kazuki43zoo.examples%3Amybatis-spring-boot-jpetstore&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.kazuki43zoo.examples%3Amybatis-spring-boot-jpetstore)
 [![Coverage Status](https://coveralls.io/repos/github/kazuki43zoo/mybatis-spring-boot-jpetstore/badge.svg?branch=master)](https://coveralls.io/github/kazuki43zoo/mybatis-spring-boot-jpetstore?branch=master)
 
-Instrcciones para ejecutarlo:
+Instrucciones para ejecutarlo:
 Arrancar un postresql:
 docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 postgres
 
@@ -26,15 +26,17 @@ docker tag emacarron/jpetstore docker.pkg.github.com/emacarron/mybatis-spring-bo
 sudo docker push docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
 
 No lo puedo descargar desde openshift. Dockerhub!!
+
 docker login 
 sudo docker push emacarron/jpetstore
 
 Openshift
 Entrar, crear:
-- projecto
+- proyecto
 - cargar imagen
 - servicio usando selector app=jpestore
 - ruta (todo por defecto)
+
 
 
 This sample is a web application built on MyBatis, Spring Boot(Spring MVC, Spring Security) and Thymeleaf.
