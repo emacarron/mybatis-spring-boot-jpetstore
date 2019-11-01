@@ -5,33 +5,33 @@
 [![Coverage Status](https://coveralls.io/repos/github/kazuki43zoo/mybatis-spring-boot-jpetstore/badge.svg?branch=master)](https://coveralls.io/github/kazuki43zoo/mybatis-spring-boot-jpetstore?branch=master)
 
 Instrucciones para ejecutarlo:
+
 Arrancar un postresql:
-docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 postgres
+- docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 postgres
 
 Arrancar un pgadmin
-docker run -p 5050:80 --link pg-docker -e "PGADMIN_DEFAULT_EMAIL=user@mail.com" -e "PGADMIN_DEFAULT_PASSWORD=pass" -d dpage/pgadmin4   
+- docker run -p 5050:80 --link pg-docker -e "PGADMIN_DEFAULT_EMAIL=user@mail.com" -e "PGADMIN_DEFAULT_PASSWORD=pass" -d dpage/pgadmin4   
 
 Compilar la aplicación
-./mvnw clean package
+- ./mvnw clean package
 
 Crear la imagen
-sudo docker build -t emacarron/jpetstore 
+- sudo docker build -t emacarron/jpetstore 
 
-Arrancarla (con el lin al postgresql)
-sudo docker run -p 8080:8080 --link pg-docker -e "SPRING_PROFILES_ACTE=hsqldb" emacarron/jpetstore
+Arrancarla (con el link al postgresql)
+- sudo docker run -p 8080:8080 --link pg-docker -e "SPRING_PROFILES_ACTE=hsqldb" emacarron/jpetstore
 
 Subirla a github
-docker login docker.pkg.github.com --username emacarron -p (necesiario un token de github=)
-docker tag emacarron/jpetstore docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
-sudo docker push docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
+- docker login docker.pkg.github.com --username emacarron -p (necesiario un token de github=)
+- docker tag emacarron/jpetstore docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
+- sudo docker push docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
 
 No lo puedo descargar desde openshift. Dockerhub!!
 
-docker login 
-sudo docker push emacarron/jpetstore
+- docker login 
+- sudo docker push emacarron/jpetstore
 
-Openshift
-Entrar, crear:
+Openshift. Entrar, crear:
 - proyecto
 - cargar imagen
 - servicio usando selector app=jpestore
