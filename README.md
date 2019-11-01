@@ -20,12 +20,21 @@ sudo docker build -t emacarron/jpetstore
 Arrancarla (con el lin al postgresql)
 sudo docker run -p 8080:8080 --link pg-docker -e "SPRING_PROFILES_ACTE=hsqldb" emacarron/jpetstore
 
-Subirla a dockerhub
+Subirla a github
 docker login docker.pkg.github.com --username emacarron -p (necesiario un token de github=)
 docker tag emacarron/jpetstore docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
-
 sudo docker push docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
 
+No lo puedo descargar desde openshift. Dockerhub!!
+docker login 
+sudo docker push emacarron/jpetstore
+
+Openshift
+Entrar, crear:
+- projecto
+- cargar imagen
+- servicio usando selector app=jpestore
+- ruta (todo por defecto)
 
 
 This sample is a web application built on MyBatis, Spring Boot(Spring MVC, Spring Security) and Thymeleaf.
