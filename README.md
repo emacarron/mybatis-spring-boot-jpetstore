@@ -16,7 +16,7 @@ Compilar la aplicación
 - ./mvnw clean package
 
 Crear la imagen
-- sudo docker build -t emacarron/jpetstore 
+- sudo docker build -t emacarron/jpetstore .
 
 Arrancarla (con el link al postgresql)
 - sudo docker run -p 8080:8080 --link pg-docker -e "SPRING_PROFILES_ACTIVE=hsqldb" emacarron/jpetstore
