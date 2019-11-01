@@ -4,6 +4,30 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.kazuki43zoo.examples%3Amybatis-spring-boot-jpetstore&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.kazuki43zoo.examples%3Amybatis-spring-boot-jpetstore)
 [![Coverage Status](https://coveralls.io/repos/github/kazuki43zoo/mybatis-spring-boot-jpetstore/badge.svg?branch=master)](https://coveralls.io/github/kazuki43zoo/mybatis-spring-boot-jpetstore?branch=master)
 
+Instrcciones para ejecutarlo:
+Arrancar un postresql:
+docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 postgres
+
+Arrancar un pgadmin
+docker run -p 5050:80 --link pg-docker -e "PGADMIN_DEFAULT_EMAIL=user@mail.com" -e "PGADMIN_DEFAULT_PASSWORD=pass" -d dpage/pgadmin4   
+
+Compilar la aplicación
+./mvnw clean package
+
+Crear la imagen
+sudo docker build -t emacarron/jpetstore 
+
+Arrancarla (con el lin al postgresql)
+sudo docker run -p 8080:8080 --link pg-docker -e "SPRING_PROFILES_ACTE=hsqldb" emacarron/jpetstore
+
+Subirla a dockerhub
+docker login docker.pkg.github.com --username emacarron -p (necesiario un token de github=)
+docker tag emacarron/jpetstore docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
+
+sudo docker push docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
+
+
+
 This sample is a web application built on MyBatis, Spring Boot(Spring MVC, Spring Security) and Thymeleaf.
 This is another implementation of MyBatis JPetStore sample application (https://github.com/mybatis/jpetstore-6).
 
