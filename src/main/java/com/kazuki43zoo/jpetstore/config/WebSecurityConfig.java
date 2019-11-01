@@ -39,7 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll();
 		http.authorizeRequests()
 				.mvcMatchers("/my/**").authenticated()
-				.anyRequest().permitAll();
+				.anyRequest()
+				.permitAll();
 	}
 
 }
