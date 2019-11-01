@@ -19,14 +19,14 @@ Crear la imagen
 - sudo docker build -t emacarron/jpetstore 
 
 Arrancarla (con el link al postgresql)
-- sudo docker run -p 8080:8080 --link pg-docker -e "SPRING_PROFILES_ACTE=hsqldb" emacarron/jpetstore
+- sudo docker run -p 8080:8080 --link pg-docker -e "SPRING_PROFILES_ACTIVE=hsqldb" emacarron/jpetstore
 
 Subirla a github
-- docker login docker.pkg.github.com --username emacarron -p (necesiario un token de github=)
+- docker login docker.pkg.github.com --username emacarron -p (necesiario un token de github con permisos)
 - docker tag emacarron/jpetstore docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
 - sudo docker push docker.pkg.github.com/emacarron/mybatis-spring-boot-jpetstore/jpetstore
 
-No lo puedo descargar desde openshift. Dockerhub!!
+No lo puedo descargar desde openshift. A Dockerhub!!
 
 - docker login 
 - sudo docker push emacarron/jpetstore
